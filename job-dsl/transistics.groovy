@@ -2,7 +2,7 @@ job('PROJ-unit-tests') {
     scm {
         git {
             remote {
-                github('git://github.com/Jouda-Hidri/Transistics', 'ssh')
+                github('Jouda-Hidri/Transistics', 'ssh')
                 credentials('github-ci-key')
             }
         }
