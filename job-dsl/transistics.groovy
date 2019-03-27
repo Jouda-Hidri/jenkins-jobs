@@ -1,10 +1,8 @@
 job('PROJ-unit-tests') {
     scm {
-        git {
-            remote {
-                github('Jouda-Hidri/Transistics', 'ssh')
-                credentials('github-ci-key')
-            }
+        git('git://github.com/Jouda-Hidri/Transistics.git') {  node -> // is hudson.plugins.git.GitSCM
+            node / gitConfigName('DSL User')
+            node / gitConfigEmail('hidrijouda@gmail.com')
         }
     }
     triggers {
