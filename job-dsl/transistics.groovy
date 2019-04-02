@@ -9,6 +9,6 @@ job('PROJ-unit-tests') {
         scm('*/15 * * * *')
     }
     steps {
-        maven('-e clean test')
+        echo 'Hello transaction statistics … '
     }
 }
