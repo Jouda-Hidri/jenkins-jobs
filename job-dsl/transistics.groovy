@@ -1,14 +1,16 @@
-job('PROJ-unit-tests') {
-    scm {
-        git('git://github.com/Jouda-Hidri/Transistics.git') {  node -> // is hudson.plugins.git.GitSCM
-            node / gitConfigName('DSL User')
-            node / gitConfigEmail('hidrijouda@gmail.com')
-        }
-    }
+pipelineJob('DSL_Pipeline') {
+
+    def repo = 'https://github.com/Jouda-Hidri/Transistics.git'
+   
     triggers {
         scm('*/15 * * * *')
     }
-    steps {
-        shell("echo 'Hello World'")
+    
+    definition {
+        cpsScm {
+          scm {
+            git(repo, 'dev', { node -> node / 'extensions' << '' } )
+            }
+        }
     }
 }
